@@ -1,4 +1,5 @@
 package Proyectos_finales.TiendaOnlineDeConsola.models;
+import Proyectos_finales.TiendaOnlineDeConsola.Exceptions.ProductoInvalidoException;
 import Proyectos_finales.TiendaOnlineDeConsola.enums.TipoProducto;
 
 public abstract class Producto {
@@ -32,7 +33,7 @@ public abstract class Producto {
     }
 
     public void setNombre(String nombre) {
-        if (nombre.isBlank()) throw new IllegalArgumentException("Atributo nombre en blanco no válido.");
+        if (nombre.isBlank()) throw new ProductoInvalidoException("Atributo nombre en blanco no válido.");
         if (nombre.length() < 3) throw new IllegalArgumentException("Nombre con cantidad de caracteres menor de 3, no válido.");
         this.nombre = nombre;
     }
